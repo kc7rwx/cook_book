@@ -4,4 +4,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Recipe::Application.load_tasks
+CookBook::Application.load_tasks

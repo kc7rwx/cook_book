@@ -1,4 +1,4 @@
-Recipe::Application.configure do
+CookBook::Application.configure do
   # Use Pry instead of IRB
   silence_warnings do
     begin
