@@ -22,7 +22,7 @@ end
 
 gem 'jquery-rails'
 gem 'haml-rails'
-gem 'best_in_place'
+gem 'best_in_place', :git => 'https://github.com/enriclluelles/best_in_place.git', :ref => '15772b2198dea087a0372884dbb5b71ab940ab47'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
