@@ -1,0 +1,7 @@
+= div_for recipe do
+  %h3 
+    = link_to recipe.name, recipe
+    %span.actions
+      = link_to "Edit", edit_recipe_path(recipe)
+      = link_to "Delete", recipe, :confirm => "Are you sure?", :method => delete
+  = recipe.description

@@ -1,0 +1,10 @@
+= form_for @recipe.batches.new do |f|
+    
+  .field
+    = f.label :name
+    = f.text_field :name
+  .field
+    = f.label :date
+    = f.text_field :date, :class => 'datepicker'
+  .actions
+    = f.submit 'Save'

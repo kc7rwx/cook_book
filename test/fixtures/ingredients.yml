@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  qty: 9.99
+  unit: MyString
+  name: MyString
+
+two:
+  qty: 9.99
+  unit: MyString
+  name: MyString

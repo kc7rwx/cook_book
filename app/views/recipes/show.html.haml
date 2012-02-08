@@ -1,0 +1,17 @@
+%p#notice= notice
+
+%p
+  %b Name:
+  = best_in_place @recipe, :name
+%p
+  %b Description:
+  = best_in_place @recipe, :description
+  
+%p
+  %b Batches:
+  = render @recipe.batches
+  = render :file => 'batches/new'
+
+= link_to 'Edit', edit_recipe_path(@recipe)
+\|
+= link_to 'Back', recipes_path
