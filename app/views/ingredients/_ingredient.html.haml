@@ -1,4 +1,5 @@
-= div_for ingredient do
+.ingredient{:id => "ingredient_#{ingredient.id}"}
   = best_in_place ingredient, :qty
   = best_in_place ingredient, :unit
   = best_in_place ingredient, :name
+  = link_to 'Delete Ingredient', ingredient_path(ingredient), :method => :delete, :remote => :true

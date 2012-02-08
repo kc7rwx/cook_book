@@ -1,19 +1,19 @@
-= div_for batch do
-  - @batch = batch
-  %b 
-    = best_in_place batch, :name
-  = link_to 'Delete Batch', batch_path(:recipe_id => @recipe, :id => batch), :confirm => 'Are you sure?', :method => :delete
-  %br
-  = best_in_place batch, :date, :type => :date
-  %br
-  %b
-    Ingredients:
-  = render batch.ingredients
-  = render :file => 'ingredients/new'
-  
-  %b
-    Instructions:
-  = render batch.instructions
-  = render :file => 'instructions/new'
-  %br
-  %br
+- @batch = batch
+%b 
+  = best_in_place batch, :name
+= link_to 'Delete Batch', batch_path(:recipe_id => @recipe, :id => batch), :confirm => 'Are you sure?', :method => :delete
+%br
+= best_in_place batch, :date, :type => :date
+%br
+%b
+  Ingredients:
+#ingredients
+  = render 'ingredients/ingredients', :ingredients => batch.ingredients
+= render :file => 'ingredients/new'
+
+%b
+  Instructions:
+= render batch.instructions
+= render :file => 'instructions/new'
+%br
+%br

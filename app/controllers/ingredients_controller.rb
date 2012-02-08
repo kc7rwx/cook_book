@@ -46,6 +46,7 @@ class IngredientsController < ApplicationController
       if @ingredient.save
         format.html { redirect_to recipe_path(@ingredient.batch.recipe_id), notice: 'Ingredient was successfully created.' }
         format.json { render json: @ingredient, status: :created, location: @ingredient }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @ingredient.errors, status: :unprocessable_entity }
@@ -78,6 +79,7 @@ class IngredientsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to @recipe }
       format.json { head :no_content }
+      format.js
     end
   end
 end

@@ -1,0 +1,4 @@
+%ul
+  -batches.each do |batch|
+    %li
+      %a{:href => "#batch_#{batch.id}"}=batch.name

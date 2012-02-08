@@ -7,9 +7,12 @@
   %b Description:
   = best_in_place @recipe, :description
   
-%p
-  %b Batches:
-  = render @recipe.batches
+#tabs
+  = render 'batches/list', :batches => @recipe.batches
+
+  %p
+    %b Batches:
+    = render 'batches/batches', :batches => @recipe.batches
 %p
   %b New Batch
   = render :file => 'batches/new'
