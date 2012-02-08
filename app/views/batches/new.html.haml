@@ -1,4 +1,6 @@
 = form_for @recipe.batches.new do |f|
+
+  =f.hidden_field :recipe_id, { :value => @recipe.id }
     
   .field
     = f.label :name
