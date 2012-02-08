@@ -1,5 +1,4 @@
 class BatchesController < ApplicationController
-  before_filter :load_recipe
 
   def new
     @batch = Batch.new
@@ -18,9 +17,8 @@ class BatchesController < ApplicationController
 
     respond_to do |format|
       if @batch.save
-        format.html { redirect_to @recipe, notice: 'Batch was successfully created.' }
+        format.html { redirect_to recipe_path(@batch.recipe_id)}
         format.json { render json: @batch, status: :created, location: @batch }
-        return
       else
         format.html { render action: "new" }
         format.json { render json: @batch.errors, status: :unprocessable_entity }
@@ -51,14 +49,9 @@ class BatchesController < ApplicationController
     @batch.destroy
 
     respond_to do |format|
-      format.html { redirect_to @recipe }
+      format.html { redirect_to recipe_path(@batch.recipe_id)}
       format.json { head :no_content }
     end
   end
-  
-  private 
-    def load_recipe
-      @recipe = Recipe.find_by_id(params[:recipe_id])
-    end
   
 end

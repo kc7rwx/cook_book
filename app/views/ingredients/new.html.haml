@@ -1,5 +1,16 @@
-%h1 New ingredient
+  
+= form_for Ingredient.new do |f|
 
-= render 'form'
-
-= link_to 'Back', ingredients_path
+  =f.hidden_field :batch_id, { :value => @batch.id }
+    
+  .field
+    = f.label :qty
+    = f.text_field :qty  
+  .field
+    = f.label :unit
+    = f.text_field :unit  
+  .field
+    = f.label :name
+    = f.text_field :name
+  .actions
+    = f.submit 'Save'

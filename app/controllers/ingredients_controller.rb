@@ -1,5 +1,4 @@
 class IngredientsController < ApplicationController
-  before_filter :load_batch
 
   # GET /ingredients
   # GET /ingredients.json
@@ -46,7 +45,7 @@ class IngredientsController < ApplicationController
 
     respond_to do |format|
       if @ingredient.save
-        format.html { redirect_to @ingredient, notice: 'Ingredient was successfully created.' }
+        format.html { redirect_to recipe_path(@ingredient.batch.recipe_id), notice: 'Ingredient was successfully created.' }
         format.json { render json: @ingredient, status: :created, location: @ingredient }
       else
         format.html { render action: "new" }
@@ -65,7 +64,7 @@ class IngredientsController < ApplicationController
         format.html { redirect_to @ingredient, notice: 'Ingredient was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: "edit" }
+        format.html { render action: @ingredient }
         format.json { render json: @ingredient.errors, status: :unprocessable_entity }
       end
     end
@@ -82,11 +81,4 @@ class IngredientsController < ApplicationController
       format.json { head :no_content }
     end
   end
-  private 
-    def load_batch
-      @batch = Batch.find(params[:batch_id])
-    end
-    def load_recipe
-      @recipe = @batch.recipe
-    end
 end
