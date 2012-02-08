@@ -6,7 +6,14 @@
   %br
   = best_in_place batch, :date, :type => :date
   %br
-  Ingredients:
+  %b
+    Ingredients:
   = render batch.ingredients
   = render :file => 'ingredients/new'
   
+  %b
+    Instructions:
+  = render batch.instructions
+  = render :file => 'instructions/new'
+  %br
+  %br

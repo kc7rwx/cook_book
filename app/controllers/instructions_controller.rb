@@ -44,7 +44,7 @@ class InstructionsController < ApplicationController
 
     respond_to do |format|
       if @instruction.save
-        format.html { redirect_to @instruction, notice: 'Instruction was successfully created.' }
+        format.html { redirect_to recipe_path(@instruction.batch.recipe_id), notice: 'Instruction was successfully created.' }
         format.json { render json: @instruction, status: :created, location: @instruction }
       else
         format.html { render action: "new" }
