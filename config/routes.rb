@@ -1,7 +1,11 @@
 CookBook::Application.routes.draw do
   
   resources :recipes     
-  resources :batches
+  resources :batches do
+    member do
+      post :clone
+    end
+  end
   resources :instructions
   resources :ingredients
   

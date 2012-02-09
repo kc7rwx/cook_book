@@ -54,4 +54,9 @@ class BatchesController < ApplicationController
     end
   end
   
+  def clone
+    @batch = Batch.find(params[:id])
+    @new_batch = @batch.clone
+    redirect_to recipe_path(@batch.recipe_id)
+  end
 end

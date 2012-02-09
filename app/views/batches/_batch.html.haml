@@ -1,6 +1,7 @@
 - @batch = batch
 %b 
   = best_in_place batch, :name
+= link_to 'Clone', clone_batch_path(:recipe_id => @recipe, :id => batch), :method => :post
 = link_to 'Delete Batch', batch_path(:recipe_id => @recipe, :id => batch), :confirm => 'Are you sure?', :method => :delete
 %br
 = best_in_place batch, :date, :type => :date

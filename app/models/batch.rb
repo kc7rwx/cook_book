@@ -7,14 +7,14 @@ class Batch < ActiveRecord::Base
 
     def copy_record(record)
       new_record = record.dup
-      new_record.batch_id = @new.id
+      new_record.batch_id = @new_batch.id
       new_record.save
     end
     
-    @new = self.dup
-    @new.name = self.name + "clone"
-    @new.date = Date.current
-    @new.save
+    @new_batch = self.dup
+    @new_batch.name = self.name + " Clone"
+    @new_batch.date = Date.current
+    @new_batch.save
     
     self.ingredients.each do |ingredient|
       copy_record(ingredient)
@@ -22,7 +22,9 @@ class Batch < ActiveRecord::Base
     
     self.instructions.each do |instruction|
       copy_record(instruction)
-    end  
+    end
+    
+    return @new_batch
   end
   
   
