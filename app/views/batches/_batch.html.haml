@@ -13,7 +13,8 @@
 
 %b
   Instructions:
-= render batch.instructions
+#instructions
+  = render 'instructions/instructions', :instructions => batch.instructions
 = render :file => 'instructions/new'
 %br
 %br

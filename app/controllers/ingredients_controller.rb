@@ -62,10 +62,10 @@ class IngredientsController < ApplicationController
     respond_to do |format|
       if @ingredient.update_attributes(params[:ingredient])
         format.html { redirect_to @ingredient, notice: 'Ingredient was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip(@ingredient) }
       else
         format.html { render action: @ingredient }
-        format.json { render json: @ingredient.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@ingredient)}
       end
     end
   end

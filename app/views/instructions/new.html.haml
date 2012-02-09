@@ -1,4 +1,4 @@
-= form_for Instruction.new do |f|
+= form_for(Instruction.new, :remote => true) do |f|
 
   =f.hidden_field :batch_id, { :value => @batch.id }
   

@@ -46,6 +46,7 @@ class InstructionsController < ApplicationController
       if @instruction.save
         format.html { redirect_to recipe_path(@instruction.batch.recipe_id), notice: 'Instruction was successfully created.' }
         format.json { render json: @instruction, status: :created, location: @instruction }
+        format.js
       else
         format.html { render action: "new" }
         format.json { render json: @instruction.errors, status: :unprocessable_entity }
@@ -61,10 +62,10 @@ class InstructionsController < ApplicationController
     respond_to do |format|
       if @instruction.update_attributes(params[:instruction])
         format.html { redirect_to @instruction, notice: 'Instruction was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip(@instruction) }
       else
         format.html { render action: "edit" }
-        format.json { render json: @instruction.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@instruction) }
       end
     end
   end
@@ -78,6 +79,7 @@ class InstructionsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to instructions_url }
       format.json { head :no_content }
+      format.js
     end
   end
 end

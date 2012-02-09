@@ -1,2 +1,3 @@
-= div_for instruction do
+.instruction{:id => "instruction_#{instruction.id}"}
   = best_in_place instruction, :description
+  = link_to 'Delete', instruction_path(instruction), :method => :delete, :remote => true

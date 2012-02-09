@@ -1,0 +1,2 @@
+$('#batch_<%= @instruction.batch_id%> #instructions').append('<%= escape_javascript(render('instructions/instruction', :instruction => @instruction))%>');
+$('#new_instruction').clearForm();

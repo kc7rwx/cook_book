@@ -34,10 +34,10 @@ class BatchesController < ApplicationController
     respond_to do |format|
       if @batch.update_attributes(params[:batch])
         format.html { redirect_to @batch, notice: 'Batch was successfully updated.' }
-        format.json { head :no_content }
+        format.json { respond_with_bip(@batch) }
       else
         format.html { redirect_to @batch }
-        format.json { render json: @batch.errors, status: :unprocessable_entity }
+        format.json { respond_with_bip(@batch) }
       end
     end
   end
