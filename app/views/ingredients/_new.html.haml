@@ -1,0 +1,7 @@
+#new_ingredients_row
+  = form_for(Ingredient.new, :remote => true) do |f|
+    = f.hidden_field :batch_id, { :value => @batch.id }   
+    = f.text_field :qty, :class => 'ingredient_qty'
+    = f.text_field :unit, :class => 'ingredient_unit'
+    = f.text_field :name, :class => 'ingredient_name'
+    = f.submit 'Save'

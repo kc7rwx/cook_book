@@ -8,13 +8,12 @@
 %br
 %b
   Ingredients:
-#ingredients
+.ingredients
   = render 'ingredients/ingredients', :ingredients => batch.ingredients
-= render :file => 'ingredients/new'
 
 %b
   Instructions:
-#instructions
+.instructions
   = render 'instructions/instructions', :instructions => batch.instructions
 = render :file => 'instructions/new'
 %br

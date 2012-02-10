@@ -1,2 +1,3 @@
-$('#batch_<%= @ingredient.batch_id%> #ingredients').append('<%= escape_javascript(render('ingredients/ingredient', :ingredient => @ingredient))%>');
+$('#ingredients_batch_<%= @ingredient.batch.id%>').append('<%= escape_javascript(render('ingredients/ingredient', :ingredient => @ingredient))%>');
 $('#new_ingredient').clearForm();
+$('#ingredient_qty').focus();

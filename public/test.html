@@ -3,18 +3,77 @@
 <script type="text/javascript" src="js/jquery-ui-1.8.17.custom.min.js"></script>
 
 	
+<meta charset="utf-8">
+	
+<style>
+	.ui-button { margin-left: -1px; }
+	.ui-button-icon-only .ui-button-text { padding: 0.35em; } 
+	.ui-autocomplete-input { margin: 0; padding: 0.48em 0 0.47em 0.45em; }
+</style>
+
 	<script>
-(function() {
-
-  $(function() {
-  	$.datepicker.setDefaults({dateFormat: "yy-mm-dd"});
-    $('.datepicker').datepicker();
+	$.widget( "custom.catcomplete", $.ui.autocomplete, {
+		_renderMenu: function( ul, items ) {
+			var self = this,
+				currentCategory = "";
+			$.each( items, function( index, item ) {
+				if ( item.category != currentCategory ) {
+					ul.append( "<li class='ui-autocomplete-category'>" + item.category + "</li>" );
+					currentCategory = item.category;
+				}
+				self._renderItem( ul, item );
+			});
+		}
+	});
+	</script>
+	<script>
+$(function() {
+  var data;
+  return data = [
+    {
+      label: "anders",
+      category: ""
+    }, {
+      label: "andreas",
+      category: "",
+      label: "antal",
+      category: ""
+    }, {
+      label: "annhhx10",
+      category: "Products"
+    }, {
+      label: "annk K12",
+      category: "Products"
+    }, {
+      label: "annttop C13",
+      category: "Products"
+    }, {
+      label: "anders andersson",
+      category: "People"
+    }, {
+      label: "andreas andersson",
+      category: "People"
+    }, {
+      label: "andreas johnson",
+      category: "People"
+    }
+  ];
+  $("#search").catcomplete({
+    delay: 0,
+    source: data
   });
-
-}).call(this);
+});
 	</script>
 
 
+<div class="demo">
+	<label for="search">Search: </label>
+	<input id="search" />
+</div>
 
 
-<p>Date: <input type="text" class="datepicker" size="30"/></p>
+
+<div class="demo-description">
+<p>A custom widget built by composition of Autocomplete and Button. You can either type something into the field to get filtered suggestions based on your input, or use the button to get the full list of selections.</p>
+<p>The input is read from an existing select-element for progressive enhancement, passed to Autocomplete with a customized source-option.</p>
+</div><!-- End demo-description -->

@@ -1,2 +1,10 @@
-- ingredients.each do |ingredient|
-  = render 'ingredients/ingredient', :ingredient => ingredient
+%table{:id => "ingredients_batch_#{@batch.id}"}
+  %tr
+    %th Qty
+    %th Unit
+    %th Ingredient
+    %th
+  - ingredients.each do |ingredient|
+    = render 'ingredients/ingredient', :ingredient => ingredient
+#new_ingredient_row
+  = render 'ingredients/new'

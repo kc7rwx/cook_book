@@ -1,5 +1,5 @@
-.ingredient{:id => "ingredient_#{ingredient.id}"}
-  = best_in_place ingredient, :qty
-  = best_in_place ingredient, :unit
-  = best_in_place ingredient, :name
-  = link_to 'Delete', ingredient_path(ingredient), :method => :delete, :remote => true
+%tr.ingredient{:id => "ingredient_#{ingredient.id}"}
+  %td.ingredient_qty= best_in_place ingredient, :qty
+  %td.ingredient_unit= best_in_place ingredient, :unit
+  %td.ingredient_name= best_in_place ingredient, :name
+  %td= link_to 'Delete', ingredient_path(ingredient), :method => :delete, :remote => true
